@@ -1,0 +1,106 @@
+Filename 	 :  gcc   entery_point.c put_list.c dopath.c copy_args.c  include.h
+
+entery_point.c   : This is the starting point of the homwwork,store the user  input 
+
+
+copy_args.c: This function is used to shows the output according to  user requirement 
+			   i.e -S -s 1024  -f str -t d 
+			  -t d it only prints the directories
+			  -t f it only prints the regular files
+ 
+
+dopath.c : This file provides the file information 
+
+put_list.c : this file for print the user requirement
+
+include.h      : this is a file for  variables and function declarations.
+
+
+
+compile the program :    gcc   entery_point.c put_list.c dopath.c copy_args.c -o hw3_sgoturi
+			 
+				make	
+			
+
+
+
+Options:
+rm -fr hw3_sgoturi
+gcc   entery_point.c put_list.c dopath.c copy_args.c -o hw3_sgoturi
+root@SLP-20990897:/home/CSE/karthic_Final/hw3# ./hw3_sgoturi
+.                                        DIR
+./copy_args.c                            REGULAR FILE
+./dopath.c                               REGULAR FILE
+./entery_point.c                         REGULAR FILE
+./hw3_read.txt                           REGULAR FILE
+./hw3_sgoturi                            REGULAR FILE
+./hw_single_file.c                       REGULAR FILE
+./include.h                              REGULAR FILE
+./Makefile                               REGULAR FILE
+./put_list.c                             REGULAR FILE
+root@SLP-20990897:/home/CSE/karthic_Final/hw3# ./hw3_sgoturi -S
+.                                        DIR  (512)
+./copy_args.c                            REGULAR FILE  (812)
+./dopath.c                               REGULAR FILE  (1672)
+./entery_point.c                         REGULAR FILE  (1038)
+./hw3_read.txt                           REGULAR FILE  (4939)
+./hw3_sgoturi                            REGULAR FILE  (13864)
+./hw_single_file.c                       REGULAR FILE  (4881)
+./include.h                              REGULAR FILE  (634)
+./Makefile                               REGULAR FILE  (177)
+./put_list.c                             REGULAR FILE  (1637)
+root@SLP-20990897:/home/CSE/karthic_Final/hw3# ./hw3_sgoturi -S -s 1024
+./dopath.c                               REGULAR FILE  (1672)
+./entery_point.c                         REGULAR FILE  (1038)
+./hw3_read.txt                           REGULAR FILE  (4939)
+./hw3_sgoturi                            REGULAR FILE  (13864)
+./hw_single_file.c                       REGULAR FILE  (4881)
+./put_list.c                             REGULAR FILE  (1637)
+root@SLP-20990897:/home/CSE/karthic_Final/hw3# ./hw3_sgoturi -S -s 1024 -t d
+root@SLP-20990897:/home/CSE/karthic_Final/hw3# ./hw3_sgoturi -S -s 1024 -t f
+./dopath.c                               REGULAR FILE  (1672)
+./entery_point.c                         REGULAR FILE  (1038)
+./hw3_read.txt                           REGULAR FILE  (4939)
+./hw3_sgoturi                            REGULAR FILE  (13864)
+./hw_single_file.c                       REGULAR FILE  (4881)
+./put_list.c                             REGULAR FILE  (1637)
+root@SLP-20990897:/home/CSE/karthic_Final/hw3# ./hw3_sgoturi -S -s 1024 -f list
+./put_list.c                             REGULAR FILE  (1637)
+root@SLP-20990897:/home/CSE/karthic_Final/hw3#
+
+Description:
+With this program, we print the directories and files that are present inside a directory, the execution of the program starts from the current directory.
+ 
+ 
+
+
+root@SLP-20990897:/home/CSE/karthic/hw3_final# ls
+Makefile  copy_args.c  dopath.c  entery_point.c  exp.c  hw3_read.txt  hw3_sgoturi  include.h  put_list.c
+
+
+This is the output for -e Command creating the child process and execute the ls -l command print the list of data.
+root@SLP-20990897:/home/CSE/karthic/hw3_final# ./hw3_sgoturi -f "hw3" -e "ls -l"
+./hw3_read.txt                           REGULAR FILE
+-rwxr-xr-x 1 root root 3463 Mar  7 15:05 ./hw3_read.txt
+./hw3_sgoturi                            REGULAR FILE
+-rwxr-xr-x 1 root root 18408 Mar 10 01:06 ./hw3_sgoturi
+
+This is the output for -E Command creating the child process and take the all the list of files as argument and execute the tar  command .
+root@SLP-20990897:/home/CSE/karthic/hw3_final# ./hw3_sgoturi -f "hw3" -E "tar -czvf ss.tar"
+tar
+-czvf
+ss.tar
+./hw3_read.txt                           REGULAR FILE
+./hw3_sgoturi                            REGULAR FILE
+./hw3_read.txt
+./hw3_sgoturi
+root@SLP-20990897:/home/CSE/karthic/hw3_final# ls
+Makefile  copy_args.c  dopath.c  entery_point.c  exp.c  hw3_read.txt  hw3_sgoturi  include.h  put_list.c  ss.tar
+root@SLP-20990897:/home/CSE/karthic/hw3_final#
+
+
+
+
+
+
+
